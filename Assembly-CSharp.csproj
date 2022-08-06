@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\HealthMan.cs" />
     <Compile Include="Assets\Scripts\WalkinkEnemy.cs" />
     <Compile Include="Assets\Scripts\PlayerRun.cs" />
+    <Compile Include="Assets\Scripts\HeadPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
