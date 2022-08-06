@@ -7,7 +7,7 @@ namespace Quest.Enemies
 
     public class PatrolEnemy : MonoBehaviour
     {
-
+        [SerializeField] private ParticleSystem smoke;
         [SerializeField] private NavMeshAgent navMeshAgent;
         [SerializeField] private Transform[] waypoints;
         private int index;
@@ -48,6 +48,8 @@ namespace Quest.Enemies
             if (distance <= 10 )
             {
                 agent.SetDestination(player.position);
+                smoke.Play();
+
                 //boolAgro = true;
             }
             //else

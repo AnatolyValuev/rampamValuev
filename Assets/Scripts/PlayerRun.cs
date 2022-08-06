@@ -15,8 +15,8 @@ namespace Quest.Enemies
         [SerializeField] private GameObject _mine;
         [SerializeField] private Transform _mineSpawnPlace;
         [SerializeField] private int _damageMine;
-
-
+       // [SerializeField] private float timer;
+        //[SerializeField] private ParticleSystem boom;
 
         private const string Horizontal = "Horizontal";
         private const string Vertical = "Vertical";
@@ -26,6 +26,8 @@ namespace Quest.Enemies
         //private const string MouseY = "Mouse Y";
         private const string Ground = "Ground";
 
+       
+         
 
 
         [SerializeField] private GameObject fonarik;
@@ -36,7 +38,7 @@ namespace Quest.Enemies
         private Vector3 direction;
         private bool isRunning;
         private Vector3 rotationDir;
-        [SerializeField] private float time;
+       // [SerializeField] private float time;
 
         private bool isGround; // ïðûæîê
         private Rigidbody rb; // ïðûæîê
@@ -50,6 +52,8 @@ namespace Quest.Enemies
 
         void Update()
         {
+
+           // timer += Time.deltaTime;
             direction.x = Input.GetAxis(Horizontal);
             direction.z = Input.GetAxis(Vertical);
            // direction.y = Input.GetAxis(Jump);
@@ -83,10 +87,19 @@ namespace Quest.Enemies
 
             }
 
-            if (Input.GetKey(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
+                
                 Instantiate(_mine, _mineSpawnPlace.position, _mineSpawnPlace.rotation);
+               
+             //   if (timer >= 1)
+             //   {
+             //       _mine.SetActive(false);
+            //        boom.Play();
+            //        timer = 0;
 
+               // }
+                
             }
 
             if (Input.GetKeyDown(KeyCode.Space) && isGround)
