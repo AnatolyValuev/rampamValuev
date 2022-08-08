@@ -19,6 +19,7 @@ namespace Quest.Enemies
         {
             StopAllCoroutines();
             StartCoroutine(OpenDoor());
+            // animator.SetBool(" имя буливой переменной которая создана в аниматоре ", true) - включить через анимацию и буливой переменной 
         }
 
         private void Awake()
