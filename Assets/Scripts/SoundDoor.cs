@@ -1,20 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class SoundDoor : MonoBehaviour
+namespace Quest.Enemies
 {
-    [SerializeField] private GameObject soundDoor;
-    private void OnTriggerEnter(Collider other)
+    public class SoundDoor : MonoBehaviour
     {
-        if (other.CompareTag("Player"))
-        {
-            soundDoor.SetActive(true);
-        }
-        else
-        {
-            soundDoor.SetActive(false);
-        }
 
+       // public AudioClip soo;
+       // private AudioSource audioo;
+      //  private void Start()
+       // {
+         //   audioo = GetComponent<AudioSource>();
+       // }
+
+
+        [SerializeField] private GameObject soundDoor;
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("Player"))
+            {
+                 soundDoor.SetActive(true);
+                //audioo.PlayOneShot(soo);
+            }
+           else
+            {
+                soundDoor.SetActive(false);
+            }
+            
+            
+            
+        
+            
+        
+    }
     }
 }
