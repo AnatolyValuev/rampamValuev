@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Quest.Enemies
 {
@@ -10,9 +11,10 @@ namespace Quest.Enemies
         [SerializeField] private GameObject enemyPrefab;
         [SerializeField] private float spawnStep = 1f;
         [SerializeField] private const float LifeTime = .5f;
-         
+
         [SerializeField] private float nextSpawnTime;
 
+      
 
 
         void Update()
@@ -24,7 +26,10 @@ namespace Quest.Enemies
                 nextSpawnTime = Time.time + spawnStep;
                 Destroy(enemy.gameObject, LifeTime);
             }
-
+            
         }
+
+
+       
     }
 }

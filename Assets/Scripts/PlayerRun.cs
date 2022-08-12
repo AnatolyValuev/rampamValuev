@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 namespace Quest.Enemies
 {
@@ -32,6 +33,9 @@ namespace Quest.Enemies
 
         [SerializeField] private GameObject fonarik;
         [SerializeField] private int healthFonarik = 10000;
+        [SerializeField] private TextMeshProUGUI textFonarik;
+
+    
 
 
 
@@ -42,6 +46,8 @@ namespace Quest.Enemies
 
         private bool isGround; // прыжок
         private Rigidbody rb; // прыжок
+
+
 
 
         private void Awake()
@@ -56,8 +62,9 @@ namespace Quest.Enemies
            // timer += Time.deltaTime;
             direction.x = Input.GetAxis(Horizontal);
             direction.z = Input.GetAxis(Vertical);
-           // direction.y = Input.GetAxis(Jump);
+            // direction.y = Input.GetAxis(Jump);
 
+            textFonarik.text = "Заряд фонарика: " + healthFonarik.ToString(); // вывод текста заряда фонарика.
 
 
 
@@ -71,7 +78,7 @@ namespace Quest.Enemies
 
             
 
-            if (Input.GetKey(KeyCode.Mouse0))
+            if (Input.GetKey(KeyCode.Mouse0) && healthFonarik > 0)
             {
                 fonarik.SetActive(true);
                 healthFonarik -= 1;
@@ -107,8 +114,7 @@ namespace Quest.Enemies
                 rb.AddForce(speedJump * transform.up, ForceMode.Impulse); // прыжок
             }
            
-
-
+           
 
 
 
@@ -123,7 +129,15 @@ namespace Quest.Enemies
                 Destroy(gameObject);
 
             }
+
+              if (other.CompareTag("Batary"))
+                {
+                healthFonarik += 5000;
+                }
+
         }
+
+
 
         private void OnCollisionEnter(Collision collision)
         {
